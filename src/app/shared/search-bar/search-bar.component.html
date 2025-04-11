@@ -1,0 +1,22 @@
+<div class="search-container">
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput 
+           [(ngModel)]="searchParams.breed" 
+           placeholder="Buscar raza de perro..."
+           (keyup.enter)="onSearch()">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="search-field">
+    <mat-icon matPrefix>pets</mat-icon>
+    <input matInput 
+           [(ngModel)]="searchParams.subBreed" 
+           placeholder="Sub-raza (opcional)"
+           (keyup.enter)="onSearch()">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="onSearch()">
+    <mat-icon>search</mat-icon>
+    Buscar
+  </button>
+</div>
