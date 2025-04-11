@@ -1,5 +1,5 @@
 .home-container {
-  min-height: 90vh;
+  min-height: 100vh;
   padding: 2rem 1rem;
   position: relative;
   overflow: hidden;
@@ -8,7 +8,6 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position-y: -13rem;
   
   .gradient-title {
     text-align: center;
@@ -33,7 +32,12 @@
     z-index: 2;
     
     @media (max-width: 768px) {
-      font-size: 2.5rem;
+      font-size: 2rem;
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.75rem;
     }
   }
 
@@ -42,6 +46,10 @@
     margin-bottom: 3rem;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+    }
   }
 
   app-pictures-dogs-breeds {
@@ -50,5 +58,36 @@
     margin: 0 auto;
     position: relative;
     z-index: 2;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+
+  .scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    background-color: #1976d2;
+    color: white;
+
+    &.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:hover {
+      background-color: #1565c0;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 768px) {
+      bottom: 1.5rem;
+      right: 1.5rem;
+    }
   }
 }

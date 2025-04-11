@@ -1,5 +1,5 @@
 <div class="home-container">
-  <h1 class="gradient-title">Dog Breeds App</h1>
+  <h1 class="gradient-title">Perrito's Breeds App</h1>
   
   <app-search-bar (search)="onSearch($event)"></app-search-bar>
   
@@ -8,4 +8,11 @@
     [loading]="loading"
     [error]="error">
   </app-pictures-dogs-breeds>
+
+  <button mat-fab class="scroll-to-top" 
+          [class.show]="showScrollButton" 
+          (click)="scrollToTop()"
+          aria-label="Scroll to top">
+    <mat-icon>arrow_upward</mat-icon>
+  </button>
 </div>

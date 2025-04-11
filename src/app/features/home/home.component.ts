@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { SearchBarComponent } from '@shared/search-bar/search-bar.component';
 import { PicturesDogsBreedsComponent } from '@shared/pictures-dogs-breeds/pictures-dogs-breeds.component';
 import { DogService } from '@shared/services/dog.service';
@@ -11,18 +13,34 @@ import { finalize } from 'rxjs/operators';
   standalone: true,
   imports: [
     CommonModule,
+    MatButtonModule,
+    MatIconModule,
     SearchBarComponent,
     PicturesDogsBreedsComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   images: string[] = [];
   loading = false;
   error: string | null = null;
+  showScrollButton = false;
 
   constructor(private dogService: DogService) {}
+
+  ngOnInit(): void {
+    this.checkScroll();
+  }
+
+  @HostListener('window:scroll')
+  checkScroll(): void {
+    this.showScrollButton = window.scrollY > 500;
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   onSearch(params: SearchParams): void {
     this.loading = true;
