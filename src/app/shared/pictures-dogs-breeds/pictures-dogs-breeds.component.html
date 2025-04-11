@@ -11,7 +11,14 @@
     <div class="grid-container">
       @for (image of images; track image) {
         <mat-card class="image-card">
-          <img mat-card-image [src]="image" [alt]="'Dog image'">
+          <img 
+            [ngSrc]="image" 
+            [alt]="'Dog image'"
+            width="280"
+            height="280"
+            [priority]="isPriority(image)"
+            [loading]="getLoadingStrategy(image)"
+          >
         </mat-card>
       }
     </div>

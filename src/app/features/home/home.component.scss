@@ -1,5 +1,5 @@
 .home-container {
-  min-height: 100vh;
+  min-height: 90vh;
   padding: 2rem 1rem;
   position: relative;
   overflow: hidden;
@@ -8,6 +8,7 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position-y: -18rem;
   
   .gradient-title {
     text-align: center;
