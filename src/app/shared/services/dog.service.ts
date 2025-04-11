@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { environment } from '@environments/environment';
 import { DogBreedResponse, DogImagesResponse } from '@shared/interfaces/dog.interface';
 
@@ -8,7 +8,20 @@ import { DogBreedResponse, DogImagesResponse } from '@shared/interfaces/dog.inte
   providedIn: 'root'
 })
 export class DogService {
-  constructor(private http: HttpClient) {}
+  private breeds: string[] = [];
+
+  constructor(private http: HttpClient) {
+    this.loadBreeds();
+  }
+
+  private loadBreeds(): void {
+    this.getAllBreeds().subscribe({
+      next: (response) => {
+        this.breeds = Object.keys(response.message);
+      },
+      error: (error) => console.error('Error loading breeds:', error)
+    });
+  }
 
   getAllBreeds(): Observable<DogBreedResponse> {
     return this.http.get<DogBreedResponse>(`${environment.apiUrl}${environment.endpoints.breeds}`);
@@ -24,5 +37,12 @@ export class DogService {
       .replace('{breed}', breed)
       .replace('{subBreed}', subBreed);
     return this.http.get<DogImagesResponse>(`${environment.apiUrl}${url}`);
+  }
+
+  filterBreeds(query: string): string[] {
+    const searchTerm = query.toLowerCase();
+    return this.breeds.filter(breed => 
+      breed.toLowerCase().includes(searchTerm)
+    );
   }
 }

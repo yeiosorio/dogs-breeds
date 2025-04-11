@@ -1,30 +1,54 @@
 .home-container {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
+  min-height: 90vh;
   padding: 2rem 1rem;
-
-  h1 {
+  position: relative;
+  overflow: hidden;
+  background-image: url("../../../assets/images/bg-dogs.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: -13rem;
+  
+  .gradient-title {
     text-align: center;
     margin-bottom: 3rem;
-    color: white;
     font-size: 2.5rem;
-    font-weight: 300;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    @media (min-width: 768px) {
-      font-size: 3rem;
-      margin-bottom: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(
+      45deg,
+      #9c27b0 0%,    // morado intenso
+      #673ab7 20%,   // morado medio
+      #3f51b5 40%,   // azul índigo
+      #4CAF50 60%,   // verde vibrante
+      #8BC34A 80%,   // verde lima
+      #2196F3 100%   // azul brillante
+    );
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
     }
   }
 
   app-search-bar {
     display: block;
     margin-bottom: 3rem;
+    position: relative;
+    z-index: 2;
   }
 
   app-pictures-dogs-breeds {
     display: block;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
 }

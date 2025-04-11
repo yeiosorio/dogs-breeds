@@ -3,20 +3,30 @@
     <mat-icon matPrefix>search</mat-icon>
     <input matInput 
            [(ngModel)]="searchParams.breed" 
-           placeholder="Buscar raza de perro..."
-           (keyup.enter)="onSearch()">
+           placeholder="Search dog breed..."
+           (input)="onSearchInput()"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" 
+                     (optionSelected)="onBreedSelected($event.option.value)"
+                     [displayWith]="displayFn">
+      @if (searchParams.breed && filteredBreeds.length > 0) {
+        @for (breed of filteredBreeds; track breed) {
+          <mat-option [value]="breed">{{breed}}</mat-option>
+        }
+      }
+    </mat-autocomplete>
   </mat-form-field>
 
   <mat-form-field appearance="outline" class="search-field">
     <mat-icon matPrefix>pets</mat-icon>
     <input matInput 
            [(ngModel)]="searchParams.subBreed" 
-           placeholder="Sub-raza (opcional)"
+           placeholder="Sub-breed (optional)"
            (keyup.enter)="onSearch()">
   </mat-form-field>
 
   <button mat-raised-button color="primary" (click)="onSearch()">
     <mat-icon>search</mat-icon>
-    Buscar
+    Search
   </button>
 </div>

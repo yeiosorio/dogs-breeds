@@ -36,6 +36,16 @@
     .mdc-text-field--outlined {
       --mdc-outlined-text-field-container-shape: 25px;
     }
+
+    .mat-mdc-option {
+      &:hover {
+        background: rgba(0, 97, 255, 0.04);
+      }
+
+      &.mat-mdc-option-active {
+        background: rgba(0, 97, 255, 0.12);
+      }
+    }
   }
 
   @media (min-width: 768px) {

@@ -40,7 +40,7 @@ export class HomeComponent {
           this.images = response.message;
         },
         error: (error) => {
-          this.error = 'Error al cargar las imágenes. Por favor, intenta de nuevo.';
+          this.error = 'Error loading images. Please try again.';
           console.error('Error:', error);
         }
       });
