@@ -5,8 +5,8 @@
            [(ngModel)]="searchParams.breed" 
            placeholder="Search dog breed..."
            (input)="onSearchInput()"
-           [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete" 
+           [matAutocomplete]="breedAuto">
+    <mat-autocomplete #breedAuto="matAutocomplete" 
                      (optionSelected)="onBreedSelected($event.option.value)"
                      [displayWith]="displayFn">
       @if (searchParams.breed && filteredBreeds.length > 0) {
@@ -22,10 +22,25 @@
     <input matInput 
            [(ngModel)]="searchParams.subBreed" 
            placeholder="Sub-breed (optional)"
+           [disabled]="!searchParams.breed"
+           (input)="onSubBreedInput()"
+           [matAutocomplete]="subBreedAuto"
            (keyup.enter)="onSearch()">
+    <mat-autocomplete #subBreedAuto="matAutocomplete"
+                     (optionSelected)="onSubBreedSelected()"
+                     [displayWith]="displayFn">
+      @if (searchParams.breed && filteredSubBreeds.length > 0) {
+        @for (subBreed of filteredSubBreeds; track subBreed) {
+          <mat-option [value]="subBreed">{{subBreed}}</mat-option>
+        }
+      }
+    </mat-autocomplete>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" (click)="onSearch()">
+  <button mat-raised-button 
+          color="primary" 
+          (click)="onSearch()"
+          [disabled]="!searchParams.breed">
     <mat-icon>search</mat-icon>
     Search
   </button>

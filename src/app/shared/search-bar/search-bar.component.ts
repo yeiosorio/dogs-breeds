@@ -33,6 +33,8 @@ export class SearchBarComponent implements OnInit {
   };
 
   filteredBreeds: string[] = [];
+  filteredSubBreeds: string[] = [];
+  hasSubBreeds = false;
 
   constructor(private dogService: DogService) {}
 
@@ -50,6 +52,29 @@ export class SearchBarComponent implements OnInit {
 
   onBreedSelected(breed: string): void {
     this.searchParams.breed = breed;
+    this.searchParams.subBreed = ''; // Limpiar sub-raza al cambiar de raza
+    this.filteredSubBreeds = this.dogService.getSubBreeds(breed);
+    this.hasSubBreeds = this.filteredSubBreeds.length > 0;
+    
+    // Realizar la búsqueda inmediatamente al seleccionar una raza
+    this.onSearch();
+  }
+
+  onSubBreedInput(): void {
+    if (this.searchParams.breed && this.searchParams.subBreed?.trim()) {
+      this.filteredSubBreeds = this.dogService.filterSubBreeds(
+        this.searchParams.breed,
+        this.searchParams.subBreed
+      );
+    } else if (this.searchParams.breed) {
+      this.filteredSubBreeds = this.dogService.getSubBreeds(this.searchParams.breed);
+    } else {
+      this.filteredSubBreeds = [];
+    }
+  }
+
+  onSubBreedSelected(): void {
+    // Realizar la búsqueda cuando se selecciona una sub-raza
     this.onSearch();
   }
 

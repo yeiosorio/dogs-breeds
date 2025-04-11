@@ -9,6 +9,7 @@ import { DogBreedResponse, DogImagesResponse } from '@shared/interfaces/dog.inte
 })
 export class DogService {
   private breeds: string[] = [];
+  private breedMap: { [key: string]: string[] } = {};
 
   constructor(private http: HttpClient) {
     this.loadBreeds();
@@ -17,6 +18,7 @@ export class DogService {
   private loadBreeds(): void {
     this.getAllBreeds().subscribe({
       next: (response) => {
+        this.breedMap = response.message;
         this.breeds = Object.keys(response.message);
       },
       error: (error) => console.error('Error loading breeds:', error)
@@ -43,6 +45,20 @@ export class DogService {
     const searchTerm = query.toLowerCase();
     return this.breeds.filter(breed => 
       breed.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  getSubBreeds(breed: string): string[] {
+    return this.breedMap[breed] || [];
+  }
+
+  filterSubBreeds(breed: string, query: string): string[] {
+    const subBreeds = this.getSubBreeds(breed);
+    if (!query) return subBreeds;
+    
+    const searchTerm = query.toLowerCase();
+    return subBreeds.filter(subBreed => 
+      subBreed.toLowerCase().includes(searchTerm)
     );
   }
 }

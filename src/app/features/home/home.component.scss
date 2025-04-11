@@ -9,6 +9,10 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position-y: -18rem;
+
+  .mat-mdc-form-field-hint-wrapper {
+    display: none;
+  }
   
   .gradient-title {
     text-align: center;

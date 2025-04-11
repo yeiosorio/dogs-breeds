@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   loading = false;
   error: string | null = null;
   showScrollButton = false;
+  currentBreed = '';
+  currentSubBreed = '';
 
   constructor(private dogService: DogService) {}
 
@@ -46,6 +48,8 @@ export class HomeComponent implements OnInit {
     this.loading = true;
     this.error = null;
     this.images = [];
+    this.currentBreed = params.breed;
+    this.currentSubBreed = params.subBreed || '';
 
     const request$ = params.subBreed
       ? this.dogService.getSubBreedImages(params.breed, params.subBreed)
