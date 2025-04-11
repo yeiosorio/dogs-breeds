@@ -4,9 +4,9 @@ This Angular application allows users to search and explore different dog breeds
 
 ## Implemented Features
 
--- installable on mobile device to working like a hybrid application, mobile and desktop
+### installable on mobile device to working like a hybrid application, mobile and desktop
 
-An informative window will appear indicating that it can be installed
+### An informative window will appear indicating that it can be installed
 
 ### 1. Search and Visualization
 - Search for dog breeds using the Dog CEO API
@@ -38,5 +38,32 @@ An informative window will appear indicating that it can be installed
 ## Usage Guide
 
 ### Installation
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/dog-breeds-app.git
+   cd dog-breeds-app
+   ```
+
 2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Ejecutar la aplicación en modo desarrollo:
+   ```bash
+   ng serve
+   ```
+
+4. Abrir en el navegador:
+   ```
+   http://localhost:4200
+   ```
+
+5. Para ver demo en produccion visitar de producción:
+   directamente:
+   
+   [https://dogs-breeds.onrender.com/](https://dogs-breeds.onrender.com/)
+
+
+
+
