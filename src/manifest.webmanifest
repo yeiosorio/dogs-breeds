@@ -1,6 +1,6 @@
 {
-  "name": "Dog Breeds App",
-  "short_name": "Dogs App",
+  "name": "Perrito's Breeds App",
+  "short_name": "Perrito's Breeds App",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -9,63 +9,63 @@
   "orientation": "any",
   "icons": [
     {
-      "src": "assets/icons/icon-72x72.png",
+      "src": "assets/icons/image.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-96x96.png",
+      "src": "assets/icons/image.png",
       "sizes": "96x96",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-128x128.png",
+      "src": "assets/icons/image.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-144x144.png",
+      "src": "assets/icons/image.png",
       "sizes": "144x144",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-152x152.png",
+      "src": "assets/icons/image.png",
       "sizes": "152x152",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-192x192.png",
+      "src": "assets/icons/image.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-384x384.png",
+      "src": "assets/icons/image.png",
       "sizes": "384x384",
       "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "assets/icons/icon-512x512.png",
+      "src": "assets/icons/image.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable any"
     }
   ],
   "categories": ["pets", "lifestyle"],
-  "description": "Explore and discover different dog breeds with our beautiful image gallery",
+  "description": "Explore and discover different perrito's breeds with our beautiful image gallery",
   "screenshots": [
     {
-      "src": "assets/screenshots/app-home.png",
+      "src": "assets/screenshots/image.png",
       "sizes": "1280x720",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Home Screen of Dog Breeds App"
+      "label": "Home Screen of Perrito's Breeds App"
     }
   ],
   "prefer_related_applications": false
