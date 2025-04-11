@@ -14,5 +14,15 @@ export class DogService {
     return this.http.get<DogBreedResponse>(`${environment.apiUrl}${environment.endpoints.breeds}`);
   }
 
- 
+  getBreedImages(breed: string): Observable<DogImagesResponse> {
+    const url = environment.endpoints.breedImages.replace('{breed}', breed);
+    return this.http.get<DogImagesResponse>(`${environment.apiUrl}${url}`);
+  }
+
+  getSubBreedImages(breed: string, subBreed: string): Observable<DogImagesResponse> {
+    const url = environment.endpoints.subBreedImages
+      .replace('{breed}', breed)
+      .replace('{subBreed}', subBreed);
+    return this.http.get<DogImagesResponse>(`${environment.apiUrl}${url}`);
+  }
 }

@@ -22,6 +22,27 @@ export class HomeComponent {
   loading = false;
   error: string | null = null;
 
-  constructor(private dogService: DogService) { }
+  constructor(private dogService: DogService) {}
 
+  onSearch(params: SearchParams): void {
+    this.loading = true;
+    this.error = null;
+    this.images = [];
+
+    const request$ = params.subBreed
+      ? this.dogService.getSubBreedImages(params.breed, params.subBreed)
+      : this.dogService.getBreedImages(params.breed);
+
+    request$
+      .pipe(finalize(() => this.loading = false))
+      .subscribe({
+        next: (response) => {
+          this.images = response.message;
+        },
+        error: (error) => {
+          this.error = 'Error al cargar las imágenes. Por favor, intenta de nuevo.';
+          console.error('Error:', error);
+        }
+      });
+  }
 }
