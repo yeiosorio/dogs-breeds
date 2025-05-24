@@ -1,5 +1,10 @@
 # Dogs Breeds - Dog Breeds Search Application
 
+![Dogs Breeds Demo](https://raw.githubusercontent.com/yourusername/dog-breeds-app/main/src/assets/images/demo-screenshot.png)
+
+> **Nota**: La imagen muestra la interfaz principal de la aplicación Dogs Breeds, donde se puede ver la barra de búsqueda con autocompletado, la visualización de imágenes de perros y el botón flotante para volver arriba.
+
+
 This Angular application allows users to search and explore different dog breeds, including sub-breeds, with a modern and responsive interface.
 
 ## Implemented Features
