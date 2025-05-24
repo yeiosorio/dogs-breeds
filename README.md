@@ -1,6 +1,7 @@
 # Dogs Breeds - Dog Breeds Search Application
 
-![Dogs Breeds Demo](https://raw.githubusercontent.com/yeiosorio/dog-breeds-app/main/src/assets/images/demo-screenshot.png)
+![Dogs Breeds Demo](src/assets/images/demo-img.png)
+
 
 > **Nota**: La imagen muestra la interfaz principal de la aplicación Dogs Breeds, donde se puede ver la barra de búsqueda con autocompletado, la visualización de imágenes de perros y el botón flotante para volver arriba.
 
